@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoatTracker.KeepCoordinatePage"
+    Title="Keep Coordinate"
+    BackgroundColor="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition />
+            <RowDefinition
+                Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout
+            Orientation="Vertical"
+            Padding="50,30,50,0"
+            Spacing="0">
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center">
+                <Image
+                    Source="cargoship"
+                    HorizontalOptions="Center"
+                    WidthRequest="20"
+                    HeightRequest="20" />
+                <Label
+                    Text="Chaopraya Boat"
+                    TextColor="#b3b3b3"
+                    HorizontalTextAlignment="Center"
+                    FontSize="17"
+                    Margin="0,5,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="Kittithada Bold 75 P" />
+            </StackLayout>
+            <Label
+                TextColor="Gray"
+                FontSize="20"
+                Margin="0,10,0,0"
+                x:Name="driverNameLabel"
+                FontFamily="Kittithada Bold 75 P" />
+            <Label
+                TextColor="Gray"
+                FontSize="20"
+                Margin="0,10,0,0"
+                x:Name="cashierNameLabel"
+                FontFamily="Kittithada Bold 75 P" />
+            <Label
+                TextColor="Gray"
+                FontSize="20"
+                Margin="0,10,0,0"
+                x:Name="plateLabel"
+                FontFamily="Kittithada Bold 75 P" />
+            <Label
+                TextColor="Gray"
+                FontSize="20"
+                Margin="0,10,0,20"
+                x:Name="startTimeLabel"
+                FontFamily="Kittithada Bold 75 P" />
+        </StackLayout>
+        <ListView
+            Grid.Row="1"
+            x:Name="timetableListViewq"
+            HeightRequest="60"
+            BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<TextCell
+                        Text="{Binding DateText}"
+                        Detail="{Binding Detail}"/>-->
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="50" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="0">
+                                <Label
+                                    Text="{Binding DateText}"
+                                    FontSize="22"
+                                    FontFamily="Kittithada Bold 75 P" />
+                                <Label
+                                    Text="{Binding Detail}"
+                                    FontSize="18"
+                                    FontFamily="Kittithada Bold 75 P"
+                                    TextColor="Gray" />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            Grid.Row="2"
+            Text="ออกจากระบบ"
+            BackgroundColor="#e6f7ff"
+            Margin="20,40,20,30"
+            x:Name="logoutButton"
+            FontSize="21"
+            FontFamily="Kittithada Bold 75 P" />
+    </Grid>
+</ContentPage>

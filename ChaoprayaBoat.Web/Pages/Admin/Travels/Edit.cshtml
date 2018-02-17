@@ -1,0 +1,80 @@
+﻿@page
+@model EditModel
+@{
+}
+
+
+<h1>Edit Travel</h1>
+
+<form method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Travel.Id" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Travel.Id" class="form-control" readonly="readonly" />
+            <span asp-validation-for="Travel.Id" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Travel.Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Travel.Name" class="form-control" />
+            <span asp-validation-for="Travel.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Travel.Latitude" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Travel.Latitude" class="form-control" />
+            <span asp-validation-for="Travel.Latitude" class="text-danger"></span>
+        </div>
+    </div>
+
+        <div class="form-group">
+        <label asp-for="Travel.Longtitude" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Travel.Longtitude" class="form-control" />
+            <span asp-validation-for="Travel.Longtitude" class="text-danger"></span>
+        </div>
+    </div>
+
+           <div class="form-group">
+        <label asp-for="Travel.Description" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Travel.Description" class="form-control" />
+            <span asp-validation-for="Travel.Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Travel.Status" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Travel.Status" class="form-control" />
+            <span asp-validation-for="Travel.Status" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Travel.CoordinateId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+                <!--การทำDropDown-->
+            @Html.DropDownListFor(model => model.Travel.CoordinateId, Model.Coordinates, "-- Choose Coordinate --", new { @class = "form-control" })
+            <!--การแสดง errorแดง ให้ใส่ข้อมูล-->
+            <span asp-validation-for="Travel.CoordinateId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-page="./Index" class="btn btn-default">Back</a>
+        </div>
+    </div>  
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

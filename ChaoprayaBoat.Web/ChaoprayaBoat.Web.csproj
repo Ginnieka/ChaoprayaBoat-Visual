@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>aspnet-ChaoprayaBoat.Web-C69C837F-913F-4D8F-8642-D7CB93D9B7FA</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet">
+      <Version>2.0.1</Version>
+    </DotNetCliToolReference>
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools">
+      <Version>2.0.0</Version>
+    </DotNetCliToolReference>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools">
+      <Version>2.0.2</Version>
+    </DotNetCliToolReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Admin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Admin\Index.cshtml.cs">
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChaoprayaBoat.Library\ChaoprayaBoat.Library.csproj" />
+  </ItemGroup>
+</Project>

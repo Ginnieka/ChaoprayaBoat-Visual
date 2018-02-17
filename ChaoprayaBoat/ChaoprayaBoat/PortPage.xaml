@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoat.PortPage"
+    Title="ข้อมูลท่าเรือ"
+    Icon="boatinfo">
+    <StackLayout
+        Orientation="Vertical">
+        <Image
+            Source="{Binding ImagePort1}"
+            Margin="10,10,10,0" />
+        <Label
+            Font="18"
+            Text="{Binding Description}"
+            HeightRequest="250"
+            HorizontalTextAlignment="Center"
+            Margin="25,10,20,0"
+            FontFamily="Kittithada Bold 75 P" />
+        <Label
+            Font="23"
+            Text="เรือรอบต่อไป : "
+            FontFamily="Kittithada Bold 75 P"
+            Margin="30,10,0,0" />
+        <Button
+            x:Name="naviButton"
+            Text="นำทางไปยังท่าเรือ"
+            BackgroundColor=" #e6e6e6"
+            TextColor="Black"
+            Margin="10,10,10,40"
+            FontSize="20"
+            FontFamily="Kittithada Bold 75 P" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="ChaoprayaBoat.LoginPage"
+    Title="LoginPage"
+    BackgroundColor="White">
+
+    <StackLayout
+        Orientation="Vertical"
+        Padding="50,150,50,0"
+        Spacing="0">
+
+       
+        <Label
+            Text="เข้าสู่ระบบ"
+            TextColor="#808080"
+            HorizontalTextAlignment="Center"
+            FontSize="25"
+            FontFamily="Kittithada Bold 75 P"
+            FontAttributes="Bold"
+            Margin="10"/>
+        
+        <Label
+            Text="เรือด่วนเจ้าพระยา"
+            TextColor="#808080"
+            FontFamily="Kittithada Bold 75 P"
+            HorizontalTextAlignment="Center"
+            FontSize="22"/>
+        
+        <Entry
+            x:Name="usernameEntry"
+            Placeholder="Username"
+            Text="sompong@gmail.com"
+            Margin="0,30,0,0" />
+        
+        <Entry
+            x:Name="passwordEntry"
+            Placeholder="Password"
+            Text="sompong"
+            IsPassword="true"
+            Margin="0,20,0,0" />
+        
+        <Grid>
+            <Button
+                Text="เข้าสู่ระบบ"
+                FontFamily="Kittithada Bold 75 P"
+                BackgroundColor="#f2f2f2"
+                Margin="0,20,0,0"
+                x:Name="loginButton" />
+
+            <Button
+                Grid.Column="1"
+                Text="สมัครสมาชิก"
+                FontFamily="Kittithada Bold 75 P"
+                BackgroundColor="#f2f2f2"
+                Margin="0,20,0,0"
+                x:Name="signupButton"/>
+
+
+            
+            <ActivityIndicator
+                x:Name="indicator"
+                IsRunning="true"
+                IsVisible="false"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

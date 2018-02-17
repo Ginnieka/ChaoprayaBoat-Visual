@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoat.MenuPage"
+    Title="Menu"
+    Icon="hamburger">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition/> 
+        </Grid.RowDefinitions>
+
+        <BoxView
+            Color="#e6f7ff"/>
+
+        <Image
+            Source="picpeople"
+            HorizontalOptions="Center"
+            WidthRequest="100"
+            HeightRequest="100" />
+
+        <ListView 
+            Grid.Row="1"
+            x:Name="menuListView"
+            SeparatorVisibility="None"
+            Margin="20,10,10,10"
+            RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<ImageCell
+                        ImageSource="{Binding ImageSource}"
+                        Text="{Binding Text}"
+                        Detail="{Binding Detail}"/>-->
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image 
+                                Source="{Binding ImageSource}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="20"
+                                HeightRequest="20"/>
+
+                            <Label
+                                Text="{Binding Text}"
+                                Grid.Column="1"
+                                FontSize="20"
+                                VerticalTextAlignment="Center"
+                                Margin="10,0,0,0"
+                                FontFamily="Kittithada Bold 75 P"/>
+                            
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </Grid>
+    
+    <!--<StackLayout
+        Orientation="Vertical"
+        VerticalOptions="Start"
+        Margin="10">
+        <BoxView
+            BackgroundColor="White"
+            HeightRequest="100" />
+        <ScrollView>
+            <StackLayout
+                Orientation="Vertical"
+                VerticalOptions="Center"
+                Padding="40">
+                <Button
+                    Text="หน้าแรก"
+                    x:Name="homeButton"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0" />
+                <Button
+                    Text="เรือโดยสารไปยังจุดหมาย"
+                    x:Name="timetableButton"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0" />
+                <Button
+                    Text="รายละเอียดการเดินเรือ"
+                    x:Name="rivermapButton"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0" />
+                <Button
+                    Text="ข้อมูลท่าเรือ"
+                    x:Name="inforButton"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0" />
+                <Button
+                    Text="โทรฉุกเฉิน"
+                    x:Name="emrgencyButton"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0" />
+                <Button
+                    Text="ออกจากระบบ"
+                    x:Name="logoutButton"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>-->
+</ContentPage>

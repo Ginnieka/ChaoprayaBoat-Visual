@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoat.PortListPage"
+    Title="ท่าเรือ">
+    <ScrollView>
+        <ListView
+            x:Name="portListView"
+            IsPullToRefreshEnabled="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<ImageCell
+                        ImageSource="flags"
+                        Text="{Binding Name}"/>-->
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="35" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Source="emptyflag"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                Margin="20,0,0,0"/>
+                            <StackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="0"
+                                Margin="0,10,0,10">
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="23"
+                                    FontFamily="Kittithada Bold 75 P" />
+                                
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

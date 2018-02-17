@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoat.NearestView"
+    BackgroundColor="#A0000000"
+    Padding="20">
+    <Frame
+        VerticalOptions="Center"
+        HeightRequest="300"
+        CornerRadius="20">
+        <StackLayout>
+            <Label
+                Text="ท่าเรือที่ใกล้ที่สุด"
+                FontSize="24"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                VerticalOptions="FillAndExpand"
+                FontFamily="Kittithada Bold 75 P" />
+            <ListView
+                x:Name="portListView"
+                VerticalOptions="FillAndExpand"
+                IsPullToRefreshEnabled="true"
+                RowHeight="60">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<ImageCell
+                            ImageSource="manmap"
+                            Text="{Binding Name}"
+                            Detail="{Binding DistancePortText}"/>-->
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="30" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="manmap"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    WidthRequest="20"
+                                    HeightRequest="20" />
+                                <StackLayout 
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Spacing="0"
+                                    Margin="10,0,0,10">
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontSize="22"
+                                        FontFamily="Kittithada Bold 75 P"/>
+                                    <Label
+                                        Text="{Binding DistancePortText}"
+                                        FontSize="18"
+                                        FontFamily="Kittithada Bold 75 P"
+                                        TextColor="Gray" />
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                Text="ปิด"
+                TextColor="Black"
+                BackgroundColor="#f2f2f2"
+                x:Name="closeButton"
+                VerticalOptions="FillAndExpand"
+                FontFamily="Kittithada Bold 75 P"
+                FontSize="22"/>
+        </StackLayout>
+    </Frame>
+</ContentView>

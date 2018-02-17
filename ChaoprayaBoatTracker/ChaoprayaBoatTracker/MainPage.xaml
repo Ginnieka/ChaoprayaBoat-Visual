@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoatTracker.MainPage"
+    Title="Keep Coordinate"
+    BackgroundColor="#e6f7ff">
+    <StackLayout
+        Orientation="Vertical"
+        Padding="50,150,50,0"
+        Spacing="0">
+        <Image
+            Source="admin"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60" />
+        
+        
+        <Label
+            Text="เข้าสู่ระบบ"
+            TextColor="#808080"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            FontSize="26"
+            Margin="0,10,0,0"
+            FontFamily="Kittithada Bold 75 P"/>
+
+          <Label
+            Text="สำหรับพนักงานขับเรือ"
+            TextColor="#808080"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            FontSize="24"
+            Margin="0,10,0,0"
+            FontFamily="Kittithada Bold 75 P"/>
+        
+        <Entry
+            x:Name="usernameEntry"
+            Placeholder="Username"
+            Text="ginnieka@hotmail.com"
+            Margin="0,30,0,0"
+            FontSize="21"
+            FontFamily="Kittithada Bold 75 P"/>
+        
+        <Entry
+            x:Name="passwordEntry"
+            Placeholder="Password"
+            Text="ginnie"
+            IsPassword="true"
+            FontSize="21"
+            Margin="0,20,0,0"
+            FontFamily="Kittithada Bold 75 P"/>
+        
+        <Grid>
+            <Button
+                Text="เข้าสู่ระบบ"
+                BackgroundColor="#f2f2f2"
+                Margin="0,20,0,0"
+                x:Name="loginButton"
+                FontSize="21"
+                FontFamily="Kittithada Bold 75 P"/>
+            
+            <ActivityIndicator
+                x:Name="indicator"
+                IsRunning="true"
+                IsVisible="false"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

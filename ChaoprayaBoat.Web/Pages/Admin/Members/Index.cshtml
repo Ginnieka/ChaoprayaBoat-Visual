@@ -1,0 +1,93 @@
+﻿@page
+@model IndexModel
+@{
+}
+
+<h1>Employee</h1>
+
+<form method="post">
+    <div class="container"> 
+        <div class="row">        
+            <div class="col-md-3 text-center" >
+                <input class="form-control hidden-print" placeholder="Name" />
+            </div>
+            <div class="col-md-9" >
+                <button type="submit" asp-page-handler="search" class="btn btn-default hidden-print">Search</button>
+                <a asp-page="./New" class="btn btn-default btn-success hidden-print">Create</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="Members[0].Id"></label>
+            </th>
+
+            <th>
+                <label asp-for="Members[0].Name"></label>
+            </th>
+
+             <th>
+                <label asp-for="Members[0].Lastname"></label>
+            </th>
+
+             <th>
+                <label asp-for="Members[0].Email"></label>
+            </th>
+
+             <th>
+                <label asp-for="Members[0].Position"></label>
+            </th>
+
+             <th>
+                <label asp-for="Members[0].Status"></label>
+            </th>
+
+                
+            <th></th>
+            </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Members) 
+{
+        <tr>
+            <td>
+                @item.Id
+            </td>
+
+            <td>
+                @item.Name
+            </td>
+
+            <td>
+                @item.Lastname
+            </td>
+
+            <td>
+                @item.Email
+            </td>
+
+             <td>
+                @item.Position
+            </td>
+
+            <td>
+                @item.Status
+            </td>
+
+            <td>                    
+                <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-xs btn-primary hidden-print">edit</a>
+                <button type="submit" asp-page-handler="delete" asp-route-id="@item.Id" class="btn btn-xs btn-danger hidden-print"  onclick="return confirm('Delete?')">delete</button> 
+            </td>
+        </tr>    
+}
+    </tbody>
+
+</table>
+
+    
+</form>
+

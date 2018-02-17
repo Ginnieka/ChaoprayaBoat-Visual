@@ -1,0 +1,77 @@
+﻿@page
+@model NewModel
+@{
+}
+
+
+<h1>New TimeTable</h1>
+
+<form method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    <div class="form-group">
+        <label asp-for="TimeTable.DateTime" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="TimeTable.DateTime" class="form-control" />
+            <span asp-validation-for="TimeTable.DateTime" class="text-danger"></span>
+        </div>
+    </div>
+
+         <div class="form-group">
+        <label asp-for="TimeTable.MemberId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+             <!--การทำDropDown-->
+            @Html.DropDownListFor(model => model.TimeTable.MemberId, Model.Members, "-- Choose Member --", new { @class = "form-control" })
+            <span asp-validation-for="TimeTable.MemberId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TimeTable.Cashier" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="TimeTable.Cashier" class="form-control" />
+            <span asp-validation-for="TimeTable.Cashier" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TimeTable.RouteId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+             <!--การทำDropDown-->
+            @Html.DropDownListFor(model => model.TimeTable.RouteId, Model.Routes, "-- Choose Route --", new { @class = "form-control" })
+            <span asp-validation-for="TimeTable.RouteId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TimeTable.BoatId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+             <!--การทำDropDown-->
+            @Html.DropDownListFor(model => model.TimeTable.BoatId, Model.Boats, "-- Choose Boat --", new { @class = "form-control" })
+            <span asp-validation-for="TimeTable.BoatId" class="text-danger"></span>
+        </div>
+    </div>
+
+
+     <div class="form-group">
+        <label asp-for="TimeTable.Destination" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+             <!--การทำDropDown-->
+            @Html.DropDownListFor(model => model.TimeTable.Destination, Model.Destinations, "-- Choose Destination --", new { @class = "form-control" })
+            <span asp-validation-for="TimeTable.Destination" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-page="./Index" class="btn btn-default">Back</a>
+        </div>
+    </div>  
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

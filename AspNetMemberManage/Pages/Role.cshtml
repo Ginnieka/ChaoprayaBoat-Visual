@@ -1,0 +1,36 @@
+﻿@page
+@model RoleModel
+@{
+    ViewBag.Title = "Role";
+}
+<h1>Role <a asp-page="./CreateRole" class="btn btn-default btn-success hidden-print">Create</a></h1>
+
+
+<form method="post">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <label asp-for="Roles[0].Name"></label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Roles) 
+    {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>                    
+                    <button type="submit" asp-page-handler="delete" asp-route-name="@item.Id" class="btn btn-xs btn-danger" onclick="return confirm('Delete?')">delete</button>
+                </td>
+            </tr>
+    }
+        </tbody>
+
+    </table>
+
+</form>
