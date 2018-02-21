@@ -4,6 +4,7 @@ using System.Net.Http;
 using ChaoprayaBoat.Library.Models;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace ChaoprayaBoat
 {
@@ -53,7 +54,13 @@ namespace ChaoprayaBoat
             {
                 var json = await response.Content.ReadAsStringAsync();
                 var ports = JArray.Parse(json).ToObject<List<Coordinate>>();
-                portListView.ItemsSource = ports;
+                portListView.ItemsSource = ports.Select(p => new 
+                {
+                    ImageSource = $"flag{routeId}",
+                    Id = p.Id,
+                    Name = p.Name
+                }).ToList();
+
             }
 
         }

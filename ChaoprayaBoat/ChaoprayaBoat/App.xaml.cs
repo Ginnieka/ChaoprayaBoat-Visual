@@ -6,6 +6,7 @@ namespace ChaoprayaBoat
     public partial class App : Application
     {
         public static Uri BaseAddress { get; set; } = new Uri("https://chaoprayaboat.azurewebsites.net");
+        public static string GooglePlaceApiKey { get; set; } = "AIzaSyAIBf9ftcng2FURH6eqrX4tHnlOOqwFBz0";
 
         public App()
         {

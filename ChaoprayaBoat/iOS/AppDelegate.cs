@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using UIKit;
+using UIKit; 
 
 namespace ChaoprayaBoat.iOS
 {
@@ -15,6 +15,7 @@ namespace ChaoprayaBoat.iOS
             global::Xamarin.Forms.Forms.Init();
 
             Xamarin.FormsMaps.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

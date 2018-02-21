@@ -21,7 +21,7 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Image
-                                Source="emptyflag"
+                                Source="{Binding ImageSource}"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 WidthRequest="20"

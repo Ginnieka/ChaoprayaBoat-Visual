@@ -3,7 +3,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ChaoprayaBoat.MainPage"
-    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
     xmlns:local="clr-namespace:ChaoprayaBoat"
     Title="เรือด่วนเจ้าพระยา"
     BackgroundColor="#e6f7ff">

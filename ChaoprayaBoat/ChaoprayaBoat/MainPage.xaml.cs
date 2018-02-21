@@ -14,7 +14,8 @@ namespace ChaoprayaBoat
         Map map;
         bool isFocusSource;
         bool isFocusDest;
-        PortListPage portListPage;
+        //PortListPage portListPage;
+        PlacePage placePage;
 
         Coordinate sourcePort;
         Coordinate destPort;
@@ -31,20 +32,23 @@ namespace ChaoprayaBoat
             GetLocation();
 
         }
+
         async void GetLocation()
         {
             var position = await CrossGeolocator.Current.GetPositionAsync(timeout: TimeSpan.FromSeconds(10));
        
 
-            map = new Map(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(0.3)))
-            {
-                IsShowingUser = true,
-            };
             //var stack = new StackLayout { Spacing = 0 };
             //stack.Children.Add(map);
             //Content = stack;
+            map = new Map(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(0.3)))
+            {
+                IsShowingUser = true,
+                HasZoomEnabled = true
+            };
 
             mapView.Content = map;
+           
 
             var client = new HttpClient();
             client.BaseAddress = App.BaseAddress;
@@ -54,6 +58,7 @@ namespace ChaoprayaBoat
             {
                 var json = await response.Content.ReadAsStringAsync();
                 var ports = JArray.Parse(json).ToObject<List<Coordinate>>();
+
 
                 foreach (var port in ports)
                 {
@@ -69,15 +74,22 @@ namespace ChaoprayaBoat
                 }
             }
 
-
         }
 
 
         void NearestButton_Clicked(object sender, EventArgs e)
         {
             //runtime
-            var nearestView = new NearestView();
+            var nearestView = new NearestView(this);
             mainLayout.Children.Add(nearestView);
+        }
+
+        public void SetSourceNavi(Coordinate port)
+        {
+            soureEntry.Text = port.Name;
+            sourcePort = port;
+
+            GetNavi();
         }
 
         async void MapTypeButton_Clicked(object sender, EventArgs e)
@@ -97,28 +109,51 @@ namespace ChaoprayaBoat
             routeListView.IsVisible = false;
             closeRouteListViewButton.IsVisible = false;
 
-            portListPage = new PortListPage(true);
-            Navigation.PushAsync(portListPage);
+            //portListPage = new PortListPage(true);
+            //Navigation.PushAsync(portListPage);
+            placePage = new PlacePage();
+            Navigation.PushAsync(placePage);
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (isFocusSource && portListPage.SelectedPort != null) 
+            if (isFocusSource) 
             {
-                soureEntry.Text = portListPage.SelectedPort.Name;
-                sourcePort = portListPage.SelectedPort;
+                if (placePage.SelectedPort != null)
+                {
+                    soureEntry.Text = placePage.SelectedPort.Name;
+                    sourcePort = placePage.SelectedPort;
+                }
+                else
+                {
+                    soureEntry.Text = "";
+                    sourcePort = null;
+                }
             }
-            else if (isFocusDest && portListPage.SelectedPort != null) 
+            else if (isFocusDest) 
             {
-                destinationEntry.Text = portListPage.SelectedPort.Name;
-                destPort = portListPage.SelectedPort;
+                if (placePage.SelectedPort != null)
+                {
+                    destinationEntry.Text = placePage.SelectedPort.Name;
+                    destPort = placePage.SelectedPort;
+                }
+                else
+                {
+                    destinationEntry.Text = "";
+                    destPort = null;
+                }
             }
 
             isFocusSource = false;
             isFocusDest = false;
 
+            GetNavi();
+        }
+
+        public async void GetNavi()
+        {
             if (sourcePort != null && destPort != null)
             {
                 var client = new System.Net.Http.HttpClient();
@@ -139,8 +174,6 @@ namespace ChaoprayaBoat
                     }
                     else await DisplayAlert("", "No route found", "OK");
                 }
-
-
             }
         }
 

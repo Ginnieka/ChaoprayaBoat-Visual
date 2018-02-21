@@ -9,7 +9,7 @@ namespace ChaoprayaBoat
 {
     public partial class LoginPage : ContentPage
     {
-        SignupPage signupPage;
+        //SignupPage signupPage;
 
         public LoginPage()
         {

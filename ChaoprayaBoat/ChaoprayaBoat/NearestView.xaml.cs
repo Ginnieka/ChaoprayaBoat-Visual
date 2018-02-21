@@ -4,25 +4,49 @@ using Xamarin.Forms;
 using Plugin.Geolocator;
 using Newtonsoft.Json.Linq;
 using ChaoprayaBoat.Library.Models;
+using Plugin.Geolocator.Abstractions;
 
 namespace ChaoprayaBoat
 {
     public partial class NearestView : ContentView
     {
+        Position position;
+        public PlacePage placePage { get; set; }
+        public MainPage mainPage { get; set; }
+
         public NearestView()
         {
             InitializeComponent();
 
             closeButton.Clicked += CloseButton_Clicked;
-            portListView.Refreshing += PortListView_Refreshing;
-            GetData();
-
+            portListView.Refreshing += PortListView_Refreshing;             
             portListView.ItemTapped += PortListView_ItemTapped;
+            GetData();
+        }
+
+        public NearestView(MainPage page) : this()
+        {
+            this.mainPage = page;
+        }
+
+
+        public NearestView(Position position, PlacePage page)
+        {
+            InitializeComponent();
+            this.placePage = page;
+
+            closeButton.Clicked += CloseButton_Clicked;
+            portListView.Refreshing += PortListView_Refreshing;
+            portListView.ItemTapped += PortListView_ItemTapped;
+
+            this.position = position;
+
+            GetData();
         }
 
         async void GetData()
         {
-            var position = await CrossGeolocator.Current.GetPositionAsync(timeout: TimeSpan.FromSeconds(10));
+            if (position == null) position = await CrossGeolocator.Current.GetPositionAsync(timeout: TimeSpan.FromSeconds(10));
             var param = new Dictionary<string, string>();
             param.Add("latitude", position.Latitude.ToString());
             param.Add("longitude",position.Longitude.ToString());
@@ -62,15 +86,27 @@ namespace ChaoprayaBoat
 
         void PortListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var port = e.Item as Coordinate;
-            var tp = new TabbedPage();
-            tp.Children.Add(new PortPage(port));
-            tp.Children.Add(new BoatGoPage(port));
-            tp.Children.Add(new BoatBackPage(port));
-            tp.Children.Add(new PortTravelPage());
-            tp.Title = port.Name;
+            if (placePage != null)
+            {
+                placePage.SelectedPort = e.Item as Coordinate;
+                (placePage.Content as Grid).Children.Remove(this);
+                placePage.Navigation.PopAsync();
+            }
+            else
+            {
+                mainPage.SetSourceNavi(e.Item as Coordinate);
+                (mainPage.Content as Grid).Children.Remove(this);
+            }
 
-            Navigation.PushAsync(tp);
+
+            //var tp = new TabbedPage();
+            //tp.Children.Add(new PortPage(port));
+            //tp.Children.Add(new BoatGoPage(port));
+            //tp.Children.Add(new BoatBackPage(port));
+            //tp.Children.Add(new PortTravelPage());
+            //tp.Title = port.Name;
+
+            //Navigation.PushAsync(tp);
         }
     }
 }
