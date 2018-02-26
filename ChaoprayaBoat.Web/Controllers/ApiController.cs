@@ -309,15 +309,66 @@ namespace ChaoprayaBoat.Web.Controllers
         [HttpGet]
         public List<Route> GetNavi(int sourceCoordinateId, int destinationCoordinteId)
         {
+            var co1 = db.Coordinates
+                        .Where(r => r.Id == sourceCoordinateId)
+                        .SingleOrDefault();
+
+            var co2 = db.Coordinates
+                        .Where(r => r.Id == destinationCoordinteId)
+                        .SingleOrDefault();
+
             var source = db.Routes
                            .Include(r => r.RouteCoordinates)
                            .Where(r => r.RouteCoordinates.Any(rc => rc.CoordinateId == sourceCoordinateId))
                            .ToList();
 
             var result = source.Where(r => r.RouteCoordinates.Any(rc => rc.CoordinateId == destinationCoordinteId))
+                               .Select(r => new Route
+                               {
+                                   Id = r.Id,
+                                   FlagColor = r.FlagColor,
+                                   ColorCode = r.ColorCode,
+                                   PriceDesc = r.PriceDesc,
+                                   DurationMinute = GetDuration(r.Id, co1, co2)
+                               })
+                               .OrderBy(r => r.DurationMinute)
                                .ToList();
 
+
             return result;
+        }
+
+        private double GetDuration(int routeId, Coordinate co1, Coordinate co2)
+        {
+            var distance = GetDistance(co1.Latitude, co1.Longtitude, co2.Latitude, co2.Longtitude);
+            var portCount = GetPortCount(routeId, co1, co2);
+            return ((distance / 1000) * 1) + (portCount * 3);
+
+
+        }
+
+        private int GetPortCount(int routeId, Coordinate co1, Coordinate co2)
+        {
+            if (co1.Sequence < co2.Sequence)
+            {
+                return db.RouteCoordinates
+                         .Where(rc => rc.RouteId == routeId && rc.Coordinate.CoordinateTypeId == 1 && rc.Coordinate.Sequence > co1.Sequence && rc.Coordinate.Sequence < co2.Sequence)
+                         .Count();
+            }
+            else
+            {
+                return db.RouteCoordinates
+                         .Where(rc => rc.RouteId == routeId && rc.Coordinate.CoordinateTypeId == 1 && rc.Coordinate.Sequence > co2.Sequence && rc.Coordinate.Sequence < co1.Sequence)
+                         .Count();
+            }
+        }
+
+        private double GetDistance(double lat1, double long1, double lat2, double long2)
+        {
+            var olat = lat1 - lat2;
+            var olong = long1 - long2;
+            var sqrt = Math.Sqrt(Math.Pow(olat, 2) + Math.Pow(olong, 2));
+            return (sqrt / (1.0f / 108.4f)) * 1000;
         }
 
         [HttpGet]
@@ -346,7 +397,23 @@ namespace ChaoprayaBoat.Web.Controllers
                            .OrderBy(c => c.Sequence)
                            .ToList();
             return result;
-                                  
+
+        }
+
+        [HttpPost]
+        public bool SignUp(Member member)
+        {
+            if (!db.Members.Any(e => e.Email == member.Email))
+            {
+                member.MemberTypeId = 1;
+                db.Members.Add(member);
+                db.SaveChanges();
+
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
+

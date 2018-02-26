@@ -14,35 +14,51 @@
             Text="SIGN UP"
             HorizontalOptions="Center"
             TextColor="#808080"
+            FontFamily="Kittithada Bold 75 P"
             FontAttributes="Bold"
             FontSize="30"/>
 
        <Entry
             x:Name="emailEntry"
             Placeholder="Email"
+            FontFamily="Kittithada Bold 75 P"
             Margin="0,20,0,0"/>
 
         <Entry
             x:Name="passwordEntry"
+            FontFamily="Kittithada Bold 75 P"
             Placeholder="Password"
             Margin="0,20,0,0"/>
 
         <Entry
             x:Name="nameEntry"
             Placeholder="Name"
+            FontFamily="Kittithada Bold 75 P"
             Margin="0,20,0,0"/>
 
         <Entry
             x:Name="lastnameEntry"
             Placeholder="Lastname"
+            FontFamily="Kittithada Bold 75 P"
             Margin="0,20,0,0"/>
 
         <Button
             x:Name="signupButton"
             Text="Create Account"
+            FontFamily="Kittithada Bold 75 P"
             BackgroundColor="#f2f2f2"
             Margin="0,20,0,0"/>
-   
+
+        <!--<Button
+            x:Name="facebookButton"
+            Image="facebook"/>-->
+
+         <Button
+            x:Name="backButton"
+            Text="Back"
+            FontFamily="Kittithada Bold 75 P"
+            BackgroundColor="#f2f2f2"
+            Margin="0,20,0,0"/>
 
 
 

@@ -28,7 +28,7 @@ namespace ChaoprayaBoat.Web.Pages.Admin.Travels
             Travel = db.Travels.Find(id);
 
             var coordinates = db.Coordinates
-                                .Where(x => x.CoordinateTypeId == 2)
+                                .Where(x => x.CoordinateTypeId == 1)
                                 //เราเลือก showเฉพาะท่าเรืออย่าง  เดียว
                                 .ToList();
 

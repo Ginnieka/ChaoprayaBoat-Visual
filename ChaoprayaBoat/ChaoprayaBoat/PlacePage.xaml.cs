@@ -21,9 +21,10 @@ namespace ChaoprayaBoat
             InitializeComponent();
 
             //searchButton.Clicked += SearchButton_Clicked;
+            searchEntry.SearchButtonPressed += SearchButton_Clicked;
             placeListView.Refreshing += PlaceListView_Refreshing;
             placeListView.ItemTapped += PlaceListView_ItemTapped;
-            searchEntry.TextChanged += SearchEntry_TextChanged;
+            //searchEntry.TextChanged += SearchEntry_TextChanged;
 
         }
 
@@ -32,42 +33,65 @@ namespace ChaoprayaBoat
             base.OnAppearing();
 
             searchEntry.Focus();
+
+            placeListView.ItemsSource = new List<Result>();
         }
 
         async void Search()
         {
-            placeListView.IsRefreshing = true;
+            //placeListView.IsRefreshing = true;
             var position = await CrossGeolocator.Current.GetPositionAsync(timeout: TimeSpan.FromSeconds(10));
 
             //https://maps.googleapis.com/maps/api/place/textsearch/xml?query=the+mall&key=AIzaSyAIBf9ftcng2FURH6eqrX4tHnlOOqwFBz0&location=13.842224,100.49118
             var client = new HttpClient();
             client.BaseAddress = new Uri("https://maps.googleapis.com");
 
-            var response = await client.GetAsync($"maps/api/place/textsearch/json?query={searchEntry.Text}&key={App.GooglePlaceApiKey}&location={position.Latitude},{position.Longitude}&language=th");
+            var response = await client.GetAsync($"maps/api/place/textsearch/json?query={searchEntry.Text}&key={App.GooglePlaceApiKey1}&location={position.Latitude},{position.Longitude}&language=th");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                var place = JObject.Parse(json).ToObject<Place>();
-                placeListView.ItemsSource = place.results;
+                var error = JObject.Parse(json).ToObject<Error>();
+
+                if (error != null && error.status != "OK")
+                {
+                    response = await client.GetAsync($"maps/api/place/textsearch/json?query={searchEntry.Text}&key={App.GooglePlaceApiKey2}&location={position.Latitude},{position.Longitude}&language=th");
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        json = await response.Content.ReadAsStringAsync();
+                        error = JObject.Parse(json).ToObject<Error>();
+
+                        placeListView.IsRefreshing = false;
+                        var place = JObject.Parse(json).ToObject<Place>();
+                        placeListView.ItemsSource = place.results;
+
+                        if (error != null && error.status != "OK") await DisplayAlert(error.status, error.error_message, "OK");
+                    }
+                }
+                else
+                {
+                    placeListView.IsRefreshing = false;
+                    var place = JObject.Parse(json).ToObject<Place>();
+                    placeListView.ItemsSource = place.results;
+                }
             }
 
-            placeListView.IsRefreshing = false;
+                
 
 
         }
 
-        //void SearchButton_Clicked(object sender, EventArgs e)
-        //{
-        //    Search();
-        //}
-
-        void SearchEntry_TextChanged(object sender, TextChangedEventArgs e)
+        void SearchButton_Clicked(object sender, EventArgs e)
         {
-            if (e.NewTextValue.Length > 3)
-            {
-                Search();
-            }
+            Search();
         }
+
+        //void SearchEntry_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+            //if (e.NewTextValue.Length > 3)
+            //{
+            //    Search();
+            //}
+            //}
 
         void PlaceListView_Refreshing(object sender, EventArgs e)
         {

@@ -24,6 +24,7 @@ namespace ChaoprayaBoat.Web.Data
         public DbSet<CoordinateType> CoordinateTypes { get; set; }
         public DbSet<BoatHistory> BoatHistories { get; set; }
         public DbSet<InfoPort> InfoPorts { get; set; }
+        public DbSet<MemberHistory> MemberHistories { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

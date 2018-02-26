@@ -12,12 +12,22 @@
 <form method="post">
     <div class="container"> 
         <div class="row">        
-            <div class="col-md-3 text-center" >
+            <div class="col-md-2 text-center" >
                 <input class="form-control hidden-print" placeholder="Name" />
             </div>
-            <div class="col-md-9" >
+            <div class="col-md-2 text-center" >
+                @Html.DropDownListFor(model => model.Month, Model.MonthList, new { @class = "form-control hidden-print" })
+            </div>
+            <div class="col-md-2 text-center" >
+                @Html.DropDownListFor(model => model.Year, Model.YearList, new { @class = "form-control hidden-print" })
+            </div>
+            <div class="col-md-2 text-center" >
+                @Html.DropDownListFor(model => model.Destination, Model.DestinationList, new { @class = "form-control hidden-print" })
+            </div>
+            
+            <div class="col-md-4" >
                 <button type="submit" asp-page-handler="search" class="btn btn-default hidden-print">Search</button>
-                <a asp-page="./New" class="btn btn-default btn-success hidden-print">Create</a>
+                <a asp-page="./New" class="btn btn-success hidden-print">Create</a>
             </div>
         </div>
     </div>
@@ -90,7 +100,8 @@
                     
             </td>
 
-            <td>                    
+            <td>  
+               <a asp-page="./BoatHistories/Index" asp-route-TimeTableId="@item.Id" asp-route-Month="@Model.Month" asp-route-Year="@Model.Year" asp-route-Dest="@Model.Destination" class="btn btn-xs btn-info hidden-print">history</a>
                 <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-xs btn-primary hidden-print">edit</a>
                 <button type="submit" asp-page-handler="delete" asp-route-id="@item.Id" class="btn btn-xs btn-danger hidden-print"  onclick="return confirm('Delete?')">delete</button> 
             </td>

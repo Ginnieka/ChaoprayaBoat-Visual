@@ -45,7 +45,7 @@ namespace ChaoprayaBoat.Web
                     options.Conventions.AuthorizeFolder("/Account/Manage");
                     options.Conventions.AuthorizePage("/Account/Logout");
 
-                options.Conventions.AddPageRoute("/Admin/Index","");
+                options.Conventions.AddPageRoute("/Admin/TimeTables/Index","");
 
             }).AddJsonOptions(options => {
 

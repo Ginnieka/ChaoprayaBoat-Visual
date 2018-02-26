@@ -55,6 +55,10 @@ namespace ChaoprayaBoat.Library.Models
 
         [JsonIgnore]
         public MemberType MemberType { get; set; }
+
+        [JsonIgnore]
+        public List<MemberHistory> MemberHistories { get; set; }
+
                
         [NotMapped]
         [JsonIgnore]

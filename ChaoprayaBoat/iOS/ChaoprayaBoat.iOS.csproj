@@ -218,6 +218,8 @@
     <BundleResource Include="Resources\emptyflag%403x.png" />
     <BundleResource Include="Resources\port1_1.png" />
     <BundleResource Include="Resources\picpeople.png" />
+    <BundleResource Include="Resources\user.png" />
+    <BundleResource Include="Resources\facebook.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ChaoprayaBoat.Library\ChaoprayaBoat.Library.csproj">

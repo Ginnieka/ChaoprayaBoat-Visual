@@ -36,5 +36,20 @@ namespace ChaoprayaBoat.Library.Models
                 return $"flag{Id}";
             }
         }
+
+        [NotMapped]
+        public double DurationMinute { get; set; }
+
+        [NotMapped]
+        [JsonIgnore]
+        public string DurationText
+        { 
+            get
+            {
+                var duration = TimeSpan.FromMinutes(DurationMinute);
+
+                return string.Format("ระยะเวลาเดินทาง {0:0} นาที", duration.TotalMinutes);
+            } 
+        }
     }
 }

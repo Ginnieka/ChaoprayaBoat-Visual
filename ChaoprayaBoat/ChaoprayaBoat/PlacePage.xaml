@@ -11,29 +11,66 @@
                 Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackLayout
+        <SearchBar
+            x:Name="searchEntry" />
+        <!--<StackLayout
             Orientation="Horizontal"
             Padding="5">
             <Entry
                 x:Name="searchEntry"
                 Placeholder="ค้นหาสถานที่"
-                HorizontalOptions="FillAndExpand"/>
-            <!--<Button
+                HorizontalOptions="FillAndExpand"
+                Margin="10,10,10,0"
+                HeightRequest="50"
+                FontFamily="Kittithada Bold 75 P" />
+            <Button
                 x:Name="searchButton"
                 Text="ค้นหา"
                 WidthRequest="80"
-                BackgroundColor="Silver"/>-->
-        </StackLayout>
+                BackgroundColor="Silver"/>
+        </StackLayout>-->
         <ListView
             Grid.Row="1"
             x:Name="placeListView"
             IsPullToRefreshEnabled="true">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="35" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Source="{Binding icon}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="20"
+                                HeightRequest="20" 
+                                Margin="20,0,0,0"/>
+                            <StackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="0"
+                                Margin="10,0,0,10">
+                                <Label
+                                    Text="{Binding name}"
+                                    FontSize="22"
+                                    FontFamily="Kittithada Bold 75 P"
+                                    LineBreakMode="TailTruncation" />
+                                <Label
+                                    Text="{Binding formatted_address}"
+                                    FontFamily="Kittithada Bold 75 P"
+                                    TextColor="Gray"
+                                    LineBreakMode="TailTruncation" />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                    <!--<ImageCell
                         Text="{Binding name}"
                         Detail="{Binding formatted_address}"
-                        ImageSource="{Binding icon}" />
+                        ImageSource="{Binding icon}" />-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -106,5 +106,8 @@ namespace ChaoprayaBoat.Library.Models
                 return $"port{Id}_2";
             }
         }
+        [NotMapped]
+        [JsonIgnore]
+        public string ImageSource { get; set; }
     }
 }

@@ -26,9 +26,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Admin\" />
+    <Folder Include="Pages\Admin\TimeTables\BoatHistories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\Admin\Index.cshtml.cs">
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Admin\TimeTables\BoatHistories\Index.cshtml.cs">
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
   </ItemGroup>

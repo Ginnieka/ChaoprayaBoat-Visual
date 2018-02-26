@@ -30,13 +30,6 @@
                 <label asp-for="Travels[0].Name"></label>
             </th>
 
-             <th>
-                <label asp-for="Travels[0].Latitude"></label>
-            </th>
-
-             <th>
-                <label asp-for="Travels[0].Longtitude"></label>
-            </th>
 
              <th>
                 <label asp-for="Travels[0].Description"></label>
@@ -44,6 +37,10 @@
 
             <th>
                 <label asp-for="Travels[0].Status"></label>
+            </th>
+
+            <th>
+                <label asp-for="Travels[0].CoordinateId"></label>
             </th>
                 
             <th></th>
@@ -61,13 +58,7 @@
                 @item.Name
             </td>
 
-            <td>
-                @item.Latitude
-            </td>
-
-            <td>
-                @item.Longtitude
-            </td>
+           
 
              <td>
                 @item.Description
@@ -75,6 +66,11 @@
 
             <td>
                 @item.Status
+            </td>
+
+
+            <td>
+                @item.CoordinateId
             </td>
 
             <td>                    

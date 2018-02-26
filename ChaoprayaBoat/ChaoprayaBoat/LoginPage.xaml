@@ -11,9 +11,14 @@
         Padding="50,150,50,0"
         Spacing="0">
 
+        <Image
+            Source="user"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60" />
        
         <Label
-            Text="เข้าสู่ระบบ"
+            Text="Login"
             TextColor="#808080"
             HorizontalTextAlignment="Center"
             FontSize="25"
@@ -22,7 +27,7 @@
             Margin="10"/>
         
         <Label
-            Text="เรือด่วนเจ้าพระยา"
+            Text="Chaopraya Boat"
             TextColor="#808080"
             FontFamily="Kittithada Bold 75 P"
             HorizontalTextAlignment="Center"

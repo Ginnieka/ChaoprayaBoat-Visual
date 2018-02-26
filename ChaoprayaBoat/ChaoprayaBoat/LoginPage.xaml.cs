@@ -9,13 +9,11 @@ namespace ChaoprayaBoat
 {
     public partial class LoginPage : ContentPage
     {
-        //SignupPage signupPage;
-
         public LoginPage()
         {
             InitializeComponent();
             loginButton.Clicked += LoginButton_Clicked;
-            //signupButton.Clicked += SignupButton_Clicked;
+            signupButton.Clicked += SignupButton_Clicked;
         }
 
         async void LoginButton_Clicked(object sender, EventArgs e)
@@ -71,8 +69,9 @@ namespace ChaoprayaBoat
             app.MainPage = mp;
 
         }
-
-
-
+        void SignupButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new SignupPage());
+        }
     }
 }

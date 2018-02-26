@@ -14,12 +14,14 @@ namespace ChaoprayaBoat
         public Coordinate SelectedPort { get; set; }
         int? routeId;
 
+        List<Coordinate> ports;
+
         public PortListPage(bool isNavi)
         {
             InitializeComponent();
             this.isNavi = isNavi;
 
-
+            searchPort.TextChanged += SearchPort_TextChanged;
             portListView.ItemTapped += PortListView_ItemTapped;
             portListView.Refreshing += PortListView_Refreshing;
         }
@@ -53,13 +55,14 @@ namespace ChaoprayaBoat
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                var ports = JArray.Parse(json).ToObject<List<Coordinate>>();
-                portListView.ItemsSource = ports.Select(p => new 
+                ports = JArray.Parse(json).ToObject<List<Coordinate>>();
+                ports = ports.Select(p => new Coordinate
                 {
-                    ImageSource = $"flag{routeId}",
+                    ImageSource = routeId == null ? "emptyflag" : $"flag{routeId}",
                     Id = p.Id,
                     Name = p.Name
                 }).ToList();
+                portListView.ItemsSource = ports;
 
             }
 
@@ -90,6 +93,12 @@ namespace ChaoprayaBoat
         void PortListView_Refreshing(object sender, EventArgs e)
         {
             GetData();
+        }
+
+        void SearchPort_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (e.NewTextValue.Length == 0) portListView.ItemsSource = ports;
+            else portListView.ItemsSource = ports.Where(p => p.Name.Contains(searchPort.Text)).ToList();
         }
     }
 }

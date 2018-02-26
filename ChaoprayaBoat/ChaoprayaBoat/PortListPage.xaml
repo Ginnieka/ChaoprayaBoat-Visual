@@ -4,8 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ChaoprayaBoat.PortListPage"
     Title="ท่าเรือ">
-    <ScrollView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <SearchBar
+            x:Name="searchPort" />
         <ListView
+            Grid.Row="1"
             x:Name="portListView"
             IsPullToRefreshEnabled="true">
             <ListView.ItemTemplate>
@@ -26,7 +34,7 @@
                                 VerticalOptions="Center"
                                 WidthRequest="20"
                                 HeightRequest="20"
-                                Margin="20,0,0,0"/>
+                                Margin="20,0,0,0" />
                             <StackLayout
                                 Grid.Column="1"
                                 VerticalOptions="Center"
@@ -36,12 +44,11 @@
                                     Text="{Binding Name}"
                                     FontSize="23"
                                     FontFamily="Kittithada Bold 75 P" />
-                                
                             </StackLayout>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </ScrollView>
+    </Grid>
 </ContentPage>

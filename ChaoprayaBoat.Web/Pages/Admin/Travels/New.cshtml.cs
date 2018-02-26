@@ -29,7 +29,7 @@ namespace ChaoprayaBoat.Web.Pages.Admin.Travels
         public void OnGet() //กดขึ้นตอนโหลดpageครั้งแรก
         {
             var coordinates = db.Coordinates
-                                .Where(x => x.CoordinateTypeId == 2) 
+                                .Where(x => x.CoordinateTypeId == 1) 
                                 //เราเลือก showเฉพาะท่าเรืออย่าง  เดียว
                                 .ToList();
 
