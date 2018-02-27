@@ -52,5 +52,25 @@
 	<array>
 		<string>kit75p.ttf</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>176696319615222</string>
+	<key>FacebookDisplayName</key>
+	<string>เรือด่วนเจ้าพระยา</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb176696319615222</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

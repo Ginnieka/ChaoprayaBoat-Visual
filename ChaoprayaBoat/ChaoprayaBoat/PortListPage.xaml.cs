@@ -83,7 +83,8 @@ namespace ChaoprayaBoat
                 tp.Children.Add(new PortPage(port));
                 tp.Children.Add(new BoatGoPage(port));
                 tp.Children.Add(new BoatBackPage(port));
-                tp.Children.Add(new PortTravelPage());
+                var travelPageNav = new PortTravelPage(port);
+                tp.Children.Add(travelPageNav);
                 tp.Title = port.Name;
 
                 Navigation.PushAsync(tp);

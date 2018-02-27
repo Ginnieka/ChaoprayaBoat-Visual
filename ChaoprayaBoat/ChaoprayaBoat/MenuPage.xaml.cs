@@ -8,6 +8,8 @@ namespace ChaoprayaBoat
 {
     public partial class MenuPage : ContentPage
     {
+        public IFacebookManager manager;
+
         public MenuPage()
         {
             InitializeComponent();
@@ -27,22 +29,30 @@ namespace ChaoprayaBoat
             menuListView.ItemsSource = myMenus;
 
             menuListView.ItemTapped += MenuListView_ItemTapped;
+
+            manager = DependencyService.Get<IFacebookManager>();
+
+            pictureImage.Source = string.IsNullOrEmpty(Helpers.Settings.Picture) ? "picpeople" : Helpers.Settings.Picture;
         }
 
-        async void LogoutButton_Clicked(object sender, EventArgs e)
-        {
-            var isOK = await DisplayAlert("Logout", "Do you want to logout?", "OK", "Cancel");
+        //async void LogoutButton_Clicked(object sender, EventArgs e)
+        //{
+        //    var isOK = await DisplayAlert("Logout", "Do you want to logout?", "OK", "Cancel");
 
-            if (isOK)
-            {
-                Helpers.Settings.Email = "";
-                Helpers.Settings.Fullname = "";
-            }
+        //    if (isOK)
+        //    {
+        //        await manager.LogOut();
+                //Helpers.Settings.IsLoggedIn = false;
+                //Helpers.Settings.Fullname = "";
+                //Helpers.Settings.Picture = "";
+        //    }
 
-            var mp = Parent as MasterDetailPage;
-            var app = mp.Parent as App;
-            app.MainPage = new LoginPage();
-        }
+        //    var mp = Parent as MasterDetailPage;
+        //    var app = mp.Parent as App;
+        //    var login = new LoginPage();
+        //    app.MainPage = login;
+
+        //}
 
         async void MenuListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
@@ -90,6 +100,11 @@ namespace ChaoprayaBoat
                     var isOk = await DisplayAlert("ออกจากระบบ", "คุณต้องการออกจากระบบ ?", "ใช่", "ยกเลิก");
                     if (isOk)
                     {
+                        await manager.LogOut();
+                        Helpers.Settings.IsLoggedIn = false;
+                        Helpers.Settings.MemberId = 0;
+                        Helpers.Settings.Fullname = "";
+                        Helpers.Settings.Picture = "";
                         var app = mp.Parent as App;
                         app.MainPage = new LoginPage();
                     }

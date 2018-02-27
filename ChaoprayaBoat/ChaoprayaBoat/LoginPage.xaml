@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="ChaoprayaBoat.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ChaoprayaBoat"
+    xmlns:helper="clr-namespace:ChaoprayaBoat.Helpers"
+    x:Class="ChaoprayaBoat.LoginPage"
     Title="LoginPage"
     BackgroundColor="White">
-
     <StackLayout
         Orientation="Vertical"
         Padding="50,150,50,0"
         Spacing="0">
-
         <Image
             Source="user"
             HorizontalOptions="Center"
             WidthRequest="60"
             HeightRequest="60" />
-       
         <Label
             Text="Login"
             TextColor="#808080"
@@ -24,28 +23,24 @@
             FontSize="25"
             FontFamily="Kittithada Bold 75 P"
             FontAttributes="Bold"
-            Margin="10"/>
-        
+            Margin="10" />
         <Label
             Text="Chaopraya Boat"
             TextColor="#808080"
             FontFamily="Kittithada Bold 75 P"
             HorizontalTextAlignment="Center"
-            FontSize="22"/>
-        
+            FontSize="22" />
         <Entry
             x:Name="usernameEntry"
             Placeholder="Username"
             Text="sompong@gmail.com"
             Margin="0,30,0,0" />
-        
         <Entry
             x:Name="passwordEntry"
             Placeholder="Password"
             Text="sompong"
             IsPassword="true"
             Margin="0,20,0,0" />
-        
         <Grid>
             <Button
                 Text="เข้าสู่ระบบ"
@@ -53,21 +48,29 @@
                 BackgroundColor="#f2f2f2"
                 Margin="0,20,0,0"
                 x:Name="loginButton" />
-
             <Button
                 Grid.Column="1"
                 Text="สมัครสมาชิก"
                 FontFamily="Kittithada Bold 75 P"
                 BackgroundColor="#f2f2f2"
                 Margin="0,20,0,0"
-                x:Name="signupButton"/>
-
-
-            
+                x:Name="signupButton" />
             <ActivityIndicator
                 x:Name="indicator"
                 IsRunning="true"
-                IsVisible="false"/>
+                IsVisible="false" />
+        </Grid>
+        <Grid>
+            <local:FacebookLoginButton
+                x:Name="fbButton"
+                Margin="0,10,0,0"
+                ReadPermissions="{x:Static helper:Settings.ReadPermissions}"
+                PublishPermissions="{x:Static helper:Settings.PublishPermissions}" />
+
+            <ActivityIndicator
+                x:Name="indicatorFacebook"
+                IsRunning="true"
+                IsVisible="false" />
         </Grid>
     </StackLayout>
 </ContentPage>

@@ -152,8 +152,15 @@ namespace ChaoprayaBoat.Web.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(45);
+
+                    b.Property<string>("FacebookId")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("FacebookPicture")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("FacebookToken");
 
                     b.Property<bool>("IsDeleted");
 
@@ -168,7 +175,6 @@ namespace ChaoprayaBoat.Web.Migrations
                         .HasMaxLength(45);
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(45);
 
                     b.Property<string>("Position")
@@ -182,6 +188,26 @@ namespace ChaoprayaBoat.Web.Migrations
                     b.HasIndex("MemberTypeId");
 
                     b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("ChaoprayaBoat.Library.Models.MemberHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Datetime");
+
+                    b.Property<double>("DestinationCoordinteId");
+
+                    b.Property<int>("MemberId");
+
+                    b.Property<double>("SourceCoordinateId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("MemberHistories");
                 });
 
             modelBuilder.Entity("ChaoprayaBoat.Library.Models.MemberType", b =>
@@ -482,6 +508,14 @@ namespace ChaoprayaBoat.Web.Migrations
                     b.HasOne("ChaoprayaBoat.Library.Models.MemberType", "MemberType")
                         .WithMany("Members")
                         .HasForeignKey("MemberTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ChaoprayaBoat.Library.Models.MemberHistory", b =>
+                {
+                    b.HasOne("ChaoprayaBoat.Library.Models.Member")
+                        .WithMany("MemberHistories")
+                        .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

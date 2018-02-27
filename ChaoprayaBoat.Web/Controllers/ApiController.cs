@@ -307,7 +307,7 @@ namespace ChaoprayaBoat.Web.Controllers
         }
 
         [HttpGet]
-        public List<Route> GetNavi(int sourceCoordinateId, int destinationCoordinteId)
+        public List<Route> GetNavi(int memberId, int sourceCoordinateId, int destinationCoordinteId)
         {
             var co1 = db.Coordinates
                         .Where(r => r.Id == sourceCoordinateId)
@@ -333,6 +333,17 @@ namespace ChaoprayaBoat.Web.Controllers
                                })
                                .OrderBy(r => r.DurationMinute)
                                .ToList();
+
+            if (result.Count() > 0)
+            {
+                var mh = new MemberHistory();
+                mh.MemberId = memberId;
+                mh.Datetime = DateTime.Now;
+                mh.SourceCoordinateId = sourceCoordinateId;
+                mh.DestinationCoordinteId = destinationCoordinteId;
+                db.Add(mh);
+                db.SaveChanges();
+            }
 
 
             return result;
@@ -401,19 +412,36 @@ namespace ChaoprayaBoat.Web.Controllers
         }
 
         [HttpPost]
-        public bool SignUp(Member member)
+        public int SignUp(Member member)
         {
-            if (!db.Members.Any(e => e.Email == member.Email))
+            if (string.IsNullOrEmpty(member.Email))
+            {
+                if (!db.Members.Any(e => e.FacebookId == member.FacebookId))
+                {
+                    member.MemberTypeId = 1;
+                    db.Members.Add(member);
+                    db.SaveChanges();
+
+                    return member.Id;
+                }
+                else
+                {
+                    var mb = db.Members.SingleOrDefault(m => m.FacebookId == member.FacebookId);
+                    return mb.Id;
+                }
+            }
+            else if (!db.Members.Any(e => e.Email == member.Email))
             {
                 member.MemberTypeId = 1;
                 db.Members.Add(member);
                 db.SaveChanges();
 
-                return true;
+                return member.Id;
             }
             else
-                return false;
+                return 0;
         }
+
     }
 }
 

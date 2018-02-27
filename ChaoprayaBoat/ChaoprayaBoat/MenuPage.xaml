@@ -17,7 +17,7 @@
             Color="#e6f7ff"/>
 
         <Image
-            Source="picpeople"
+            x:Name="pictureImage"
             HorizontalOptions="Center"
             WidthRequest="100"
             HeightRequest="100" />

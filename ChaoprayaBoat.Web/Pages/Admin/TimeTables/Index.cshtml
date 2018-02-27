@@ -33,7 +33,7 @@
     </div>
 
     
-    <table class="table table-hover">
+    <table id="timetable"= class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -110,6 +110,11 @@
     </tbody>
 
 </table>
+   
 
     
 </form>
+
+<br/>
+<button id="btnExport" onclick="javascript:xport.toCSV('timetable');" class="btn btn-default hidden-print">Export to CSV</button>
+<button id="btnExportPdf" onclick="javascript:exportTable.toPdf('timetable');" class="btn btn-default hidden-print">Export to PDF</button>

@@ -159,7 +159,7 @@ namespace ChaoprayaBoat
                 var client = new System.Net.Http.HttpClient();
                 client.BaseAddress = App.BaseAddress;
 
-                var response = await client.GetAsync($"api/GetNavi?sourceCoordinateId={sourcePort.Id}&destinationCoordinteId={destPort.Id}");
+                var response = await client.GetAsync($"api/GetNavi?memberId={Helpers.Settings.MemberId}&sourceCoordinateId={sourcePort.Id}&destinationCoordinteId={destPort.Id}");
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {

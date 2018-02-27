@@ -13,6 +13,7 @@ namespace ChaoprayaBoat
         {
             InitializeComponent();
             signupButton.Clicked += SignupButton_Clicked;
+            backButton.Clicked += BackButton_Clicked;
         }
 
         async void SignupButton_Clicked(object sender, EventArgs e)
@@ -36,6 +37,10 @@ namespace ChaoprayaBoat
 
                 if (isOk)
                 {
+                    Helpers.Settings.IsLoggedIn = true;
+                    Helpers.Settings.Fullname = $"{nameEntry.Text} {lastnameEntry.Text}";
+                    Helpers.Settings.Picture = "";
+
                     var app = Parent as App;
 
                     var mp = new MasterDetailPage();
@@ -49,6 +54,11 @@ namespace ChaoprayaBoat
             }
 
 
+        }
+
+        void BackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

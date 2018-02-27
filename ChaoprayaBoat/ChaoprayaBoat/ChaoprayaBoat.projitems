@@ -54,11 +54,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DetailTravelPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PlacePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PlacePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PortTravelDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -101,14 +101,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)EmergencyPage.xaml.cs">
       <DependentUpon>EmergencyPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)DetailTravelPage.xaml.cs">
-      <DependentUpon>DetailTravelPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)PlacePage.xaml.cs">
       <DependentUpon>PlacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\FacebookLoginButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dependency\IFacebookManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\FacebookLoginEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PortTravelDetail.xaml.cs">
+      <DependentUpon>PortTravelDetail.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Dependency\" />
   </ItemGroup>
 </Project>

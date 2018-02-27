@@ -19,16 +19,24 @@ namespace ChaoprayaBoat.Library.Models
         [MaxLength(45)]
         public string Lastname { get; set; }
 
-        [Required]
         [MaxLength(45)]
         public string Email { get; set; }
 
-        [Required]
         [MaxLength(45)]
         [DataType(DataType.Password)]
         [JsonIgnore]
         public string Password { get; set; }
 
+
+        public string FacebookToken { get; set; }
+
+        [MaxLength(50)]
+        public string FacebookId { get; set; }
+
+        [MaxLength(256)]
+        public string FacebookPicture { get; set; }
+
+   
         //[Required]      
         //[JsonIgnore]
         //public double Latitude { get; set; }
