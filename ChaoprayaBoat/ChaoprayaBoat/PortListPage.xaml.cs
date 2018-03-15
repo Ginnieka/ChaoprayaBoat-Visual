@@ -60,7 +60,10 @@ namespace ChaoprayaBoat
                 {
                     ImageSource = routeId == null ? "emptyflag" : $"flag{routeId}",
                     Id = p.Id,
-                    Name = p.Name
+                    Name = p.Name,
+                    Description = p.Description
+                
+                                     
                 }).ToList();
                 portListView.ItemsSource = ports;
 

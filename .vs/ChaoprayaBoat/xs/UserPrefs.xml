@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{8ECF9615-A1AE-4856-BE7B-1853A463409E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChaoprayaBoat.Library/Models/Coordinate.cs">
+    <Files>
+      <File FileName="ChaoprayaBoat/ChaoprayaBoat/PortPage.xaml" Line="39" Column="39" />
+      <File FileName="ChaoprayaBoat/ChaoprayaBoat/PortPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="ChaoprayaBoat.Library/Models/Coordinate.cs" Line="111" Column="48" />
+      <File FileName="ChaoprayaBoat.Library/Models/Travel.cs" Line="41" Column="35" NotebookId="1" />
+      <File FileName="ChaoprayaBoat/ChaoprayaBoat/PortTravelDetail.xaml.cs" Line="24" Column="30" NotebookId="1" />
+      <File FileName="ChaoprayaBoat/ChaoprayaBoat/PortTravelDetail.xaml" Line="12" Column="46" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.ItemProperties.ChaoprayaBoatTracker.Droid PreferredExecutionTarget="Android.Nexus_5X_API_27_x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/katewalee/Project/ChaoprayaBoat/ChaoprayaBoat/ChaoprayaBoat/PortTravelDetail.xaml" relfile="ChaoprayaBoat/ChaoprayaBoat/PortTravelDetail.xaml" line="24" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.ChaoprayaBoatTracker.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7A31FC71-2B2C-478D-95DA-E6253C0DDE58" automaticSigning="False">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="GS5735C42V" TeamId="BA6LK3AQQA" />
+  </MonoDevelop.Ide.ItemProperties.ChaoprayaBoatTracker.iOS>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="ChaoprayaBoat.Web/Controllers/ApiController.cs" line="89" offsetX="603" offsetY="1408" expression="currentBoatCoordinate" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.ChaoprayaBoat.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.b86335d11a0b87b6a577852221d0842f8f7817c5" automaticSigning="False">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.ChaoprayaBoat.iOS>
+  <MonoDevelop.Ide.ItemProperties.TestLatLong PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ChaoprayaBoat.Web PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.ChaoprayaBoat.Droid PreferredExecutionTarget="Android.HT6B50200823" />
+</Properties>

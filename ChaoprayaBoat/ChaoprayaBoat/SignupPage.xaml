@@ -8,10 +8,16 @@
 
     <StackLayout
         Orientation="Vertical"
-        Padding="50,100,50,0">
+        Padding="50,70,50,0">
+
+        <Image
+            Source="adduser"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60" />
 
         <Label
-            Text="SIGN UP"
+            Text="Sign Up"
             HorizontalOptions="Center"
             TextColor="#808080"
             FontFamily="Kittithada Bold 75 P"

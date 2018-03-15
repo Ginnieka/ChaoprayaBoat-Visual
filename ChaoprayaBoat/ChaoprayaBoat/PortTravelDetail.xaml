@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="ChaoprayaBoat.PortTravelDetail">
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChaoprayaBoat.PortTravelDetail"
+    x:Name="PortTravelDetail">
+    <ScrollView>
+        <StackLayout
+            Padding="20,20,20,0">
 
-    <Button
-        x:Name="closeButton"
-        Text="ปิด"
-        BackgroundColor="Red"
-        TextColor="White"
-        VerticalOptions="End"
-        Margin="10,10,10,10"/>
-    
+            <Label
+                Font="30"
+                Text="{Binding Name}"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+
+            <Image
+                Source="{Binding ImageTravel3}"
+                Margin="10,10,10,0" />
+            <Label
+                Font="22"
+                Text="{Binding Description}"
+                HeightRequest="200"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+            <Label
+                Font="24"
+                Text="{Binding Status}"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+            <Label
+                Font="22"
+                Text="*******************"
+                TextColor="Red"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+
+            <Label
+                Font="22"
+                Text="มีเรือให้บริการนำท่องเที่ยว"
+                TextColor="Red"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+
+             <Label
+                Font="22"
+                Text="เที่ยวละ 89 บาทต่อคน"
+                TextColor="Red"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+             <Label
+                Font="22"
+                Text="ให้บริการทุกๆวันเสาร์และวันอาทิตย์"
+                TextColor="Red"
+                HorizontalTextAlignment="Center"
+                Margin="25,10,20,0"
+                FontFamily="Kittithada Bold 75 P" />
+            
+            <Button
+                x:Name="closeButton"
+                Text="ปิด"
+                BackgroundColor="Transparent"
+                TextColor="Blue"
+                VerticalOptions="End"
+                Margin="10,10,10,10" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

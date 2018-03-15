@@ -20,7 +20,7 @@
                                     Width="30" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                             <StackLayout
+                            <StackLayout
                                 Grid.Column="1"
                                 VerticalOptions="Center"
                                 Spacing="0"
@@ -30,8 +30,6 @@
                                     FontSize="23"
                                     FontFamily="Kittithada Bold 75 P" />
                             </StackLayout>
-                            
-                            
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

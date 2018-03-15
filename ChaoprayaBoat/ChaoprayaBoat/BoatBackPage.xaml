@@ -4,7 +4,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="ChaoprayaBoat.BoatBackPage"
     Title="ขาออกกรุงเทพ"
-    Icon="favorites">
+    Icon="external">
 
         <ListView
         x:Name="boatListView">

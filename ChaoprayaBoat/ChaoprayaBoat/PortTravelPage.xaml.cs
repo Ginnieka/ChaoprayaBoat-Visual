@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using ChaoprayaBoat.Library.Models;
@@ -34,21 +34,22 @@ namespace ChaoprayaBoat
             client.BaseAddress = App.BaseAddress;
 
             var response = await client.GetAsync($"api/GetTravel?coordinateId={port.Id}");
-            if(response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var json = await response.Content.ReadAsStringAsync();
                 var travels = JArray.Parse(json).ToObject<List<Travel>>();
                 portTravelListView.ItemsSource = travels;
             }
-         
-            
+
+
         }
 
         void PortTravelListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var travel = e.Item as Travel;
 
-            Navigation.PushModalAsync(new PortTravelDetail(travel));
+            Navigation.PushModalAsync(new PortTravelDetail(travel));  //(travel) error
+
         }
     }
 

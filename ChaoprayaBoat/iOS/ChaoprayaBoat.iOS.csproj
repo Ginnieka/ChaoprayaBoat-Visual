@@ -191,7 +191,6 @@
     <BundleResource Include="Resources\manmap.png" />
     <BundleResource Include="Resources\manmap%402x.png" />
     <BundleResource Include="Resources\manmap%403x.png" />
-    <BundleResource Include="Resources\port1_2.png" />
     <BundleResource Include="Resources\noimage.png" />
     <BundleResource Include="Resources\time.png" />
     <BundleResource Include="Resources\time%402x.png" />
@@ -224,13 +223,22 @@
     <BundleResource Include="Resources\emptyflag.png" />
     <BundleResource Include="Resources\emptyflag%402x.png" />
     <BundleResource Include="Resources\emptyflag%403x.png" />
-    <BundleResource Include="Resources\port1_1.png" />
     <BundleResource Include="Resources\picpeople.png" />
     <BundleResource Include="Resources\user.png" />
     <BundleResource Include="Resources\facebook.png" />
     <BundleResource Include="Resources\step1.jpg" />
     <BundleResource Include="Resources\step2.jpg" />
     <BundleResource Include="Resources\step3.jpg" />
+    <BundleResource Include="Resources\step4.jpg" />
+    <BundleResource Include="Resources\external.png" />
+    <BundleResource Include="Resources\external%402x.png" />
+    <BundleResource Include="Resources\external%403x.png" />
+    <BundleResource Include="Resources\internal.png" />
+    <BundleResource Include="Resources\internal%402x.png" />
+    <BundleResource Include="Resources\internal%403x.png" />
+    <BundleResource Include="Resources\adduser.png" />
+    <BundleResource Include="Resources\travel4_1.png" />
+    <BundleResource Include="Resources\port2_1.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ChaoprayaBoat.Library\ChaoprayaBoat.Library.csproj">

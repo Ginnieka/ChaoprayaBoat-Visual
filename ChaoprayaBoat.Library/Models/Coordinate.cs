@@ -71,7 +71,7 @@ namespace ChaoprayaBoat.Library.Models
             {
                 if (Distance > 0)
                 {
-                    return string.Format("เรืออยู่ห่างจากท่าเรือ {0:0.000} กม. และจะถึงภายใน {1:0} ชม. {2:0} นาที", Distance / 1000, Duration.TotalHours, Duration.Minutes);
+                    return string.Format("เรืออยู่ห่างจากท่าเรือ {0:0.0} กม. และจะถึงภายใน {1:0} ชม. {2:0} นาที", Distance / 1000, Duration.TotalHours, Duration.Minutes);
                 }
                 else return "เรือถึงท่าเรือแล้ว";
             }
@@ -83,7 +83,7 @@ namespace ChaoprayaBoat.Library.Models
         {
             get
             {                
-                return string.Format("ระยะทางถึงท่าเรือประมาณ {0:0.000} กม.", Distance / 1000);
+                return string.Format("ระยะทางถึงท่าเรือประมาณ {0:0.0} กม.", Distance / 1000);
             }
         }
 

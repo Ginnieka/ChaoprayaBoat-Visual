@@ -17,7 +17,7 @@ namespace ChaoprayaBoat
 
             if (!Helpers.Settings.IsTutorial)
             {
-                int max = 3;
+                int max = 4;
                 var cp = new CarouselPage();
                 for (int i = 1; i <= max; i++)
                 {
@@ -32,11 +32,13 @@ namespace ChaoprayaBoat
 
                         var button = new Button();
                         button.Text = "ข้าม";
+                        //button.Font = "Kittithada Bold 75 P";
                         button.VerticalOptions = LayoutOptions.End;
+                        //button.Margin = new Thickness(70,10);
                         button.Margin = new Thickness(20);
-                        //button.TextColor = Color.FromRgb(0xFF, 0xFF, x0FF);
                         button.TextColor = Color.Black;
-                        button.BackgroundColor = Color.Lime;
+                        //button.TextColor = Color.FromRgb(0xd6, 0xf5, 0xf5);
+                        button.BackgroundColor = Color.FromRgb(0xff, 0xb3, 0xb3);
                         grid.Children.Add(button);
                         button.Clicked += (sender, e) => {
                             Helpers.Settings.IsTutorial = true;
@@ -60,7 +62,8 @@ namespace ChaoprayaBoat
                         button.VerticalOptions = LayoutOptions.End;
                         button.Margin = new Thickness(20);
                         button.TextColor = Color.Black;
-                        button.BackgroundColor = Color.Lime;
+                        //button.BackgroundColor = Color.Lime;
+                        button.BackgroundColor = Color.FromRgb(0x84, 0xe1, 0xe1);
                         grid.Children.Add(button);
                         button.Clicked += (sender, e) => {
                             Helpers.Settings.IsTutorial = true;

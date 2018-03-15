@@ -216,7 +216,6 @@
     <AndroidResource Include="Resources\drawable\home.png" />
     <AndroidResource Include="Resources\drawable\layers_2.png" />
     <AndroidResource Include="Resources\drawable\manmap.png" />
-    <AndroidResource Include="Resources\drawable\port1_2.png" />
     <AndroidResource Include="Resources\drawable\noimage.png" />
     <AndroidResource Include="Resources\drawable\time.png" />
     <AndroidResource Include="Resources\drawable\list.png" />
@@ -228,15 +227,23 @@
     <AndroidResource Include="Resources\drawable\flag4.png" />
     <AndroidResource Include="Resources\drawable\dot.png" />
     <AndroidResource Include="Resources\drawable\emptyflag.png" />
-    <AndroidResource Include="Resources\drawable\port1_1.png" />
     <AndroidResource Include="Resources\drawable\picpeople.png" />
     <AndroidResource Include="Resources\drawable\user.png" />
     <AndroidResource Include="Resources\drawable\facebook.png" />
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\XML\file_paths.xml" />
-    <AndroidResource Include="Resources\drawable\step3.PNG" />
-    <AndroidResource Include="Resources\drawable\step1.PNG" />
-    <AndroidResource Include="Resources\drawable\step2.PNG" />
+    <AndroidResource Include="Resources\drawable\step1.jpg" />
+    <AndroidResource Include="Resources\drawable\step2.jpg" />
+    <AndroidResource Include="Resources\drawable\step3.jpg" />
+    <AndroidResource Include="Resources\drawable\step4.jpg" />
+    <AndroidResource Include="Resources\drawable\external.png" />
+    <AndroidResource Include="Resources\drawable\external%402x.png" />
+    <AndroidResource Include="Resources\drawable\external%403x.png" />
+    <AndroidResource Include="Resources\drawable\internal.png" />
+    <AndroidResource Include="Resources\drawable\internal%402x.png" />
+    <AndroidResource Include="Resources\drawable\internal%403x.png" />
+    <AndroidResource Include="Resources\drawable\travel4_1.png" />
+    <AndroidResource Include="Resources\drawable\port2_1.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ChaoprayaBoat.Library\ChaoprayaBoat.Library.csproj">
